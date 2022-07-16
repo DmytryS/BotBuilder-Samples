@@ -11,7 +11,7 @@ class EchoBot extends ActivityHandler {
             const replyText = `Echo: ${ context.activity.text }`;
             await context.sendActivity(MessageFactory.text(replyText, replyText));
             // By calling next() you ensure that the next BotHandler is run.
-            await next();
+            return await next();
         });
 
         this.onMembersAdded(async (context, next) => {
